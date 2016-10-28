@@ -13,19 +13,28 @@ app.config(function($routeProvider) {
 })
 
 
-app.controller('MoviesController', ['$scope', '$http', function($scope, $http) {
+app.controller('MoviesController', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.thing = 'did this work?'
 
+    // $scope.movie = {}
+    $scope.movies = []
+
     $scope.getMovies = function(data) {
-            console.log('data is', data);
-        }
-        // getMovies()
-        // $http.get('http://www.omdbapi.com/?')
+        // console.log('data is', data);
+        let movieTitle = data.title
+        console.log(movieTitle);
+        $http.get(`http://www.omdbapi.com/?s=${movieTitle}`)
+            .then(function(movies) {
+                console.log('movies data is', movies.data.Search);
+                // movies.push()
+
+                $scope.moviesData = movies.data.Search
+                    // console.log(moviesData);
+                $location.url('/movies')
+            })
+
+    }
 
 
 
-}])
-
-app.controller('MovieController', ['$scope', function($scope) {
-    $scope.thing = 'i work'
 }])

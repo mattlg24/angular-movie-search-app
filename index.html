@@ -22,16 +22,16 @@
 
             <h1>Angular OMDb API Search</h1>
             <h3>Enter a movie by title</h3>
-            <form ng-submit=getMovies(data)>
+            <form ng-submit=getMovies(movie)>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="movieTitle" placeholder="movie title e.g 'Die Hard'" ng-model="movieSearch">
+                    <input type="text" class="form-control" id="movieTitle" placeholder="movie title" ng-model="movie.title" ng-required="true">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            <hr>
+            <main ng-view></main>
         </div>
-        <hr>
-        
-        <main ng-view></main>
+
 
     </div>
 
