@@ -1,8 +1,12 @@
 <div ng-repeat="movie in moviesData">
-<div class="panel panel-default">
-    <div class="panel-body">
-
-            {{movie.Title}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div>
+              <a href="#/movie/{{movie.imdbID}}">{{movie.Title}}</a>  
+            </div>
+            <div>
+                {{movie.Year}}
+            </div>
         </div>
     </div>
 </div>
